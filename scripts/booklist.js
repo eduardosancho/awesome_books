@@ -4,7 +4,7 @@ function storeData() {
     localStorage.setItem('books', JSON.stringify(books));
 }
 
-document.getElementById('add-book').onchange = () => { storeData() };
+// document.getElementById('add-book').onchange = () => { storeData() };
 
 const localObject = localStorage.getItem('book-data');
 
@@ -23,23 +23,37 @@ if (localObject) {
 const addButton = document.getElementById("add-book-button");
 addButton.addEventListener('click', addBook);
 
-function addBook() {
-    const bookCard = document.createElement('div');
-    bookCard.innerHTML = `
-<h2 class="book-title"></h2>
-<h3 class="book-author"></h3>
-<button class="remove-button" type="button">Remove</button>
-`;
-    bookCard.querySelector('.book-title').textContent = document.getElementById('book-title-input').value;
-    bookCard.querySelector('.book-author').textContent = document.getElementById('book-author-input').value;
 
-    books.push(bookCard);
-
-    document.getElementById('book-list').appendChild(books[books.length-1]);
-
-    /* const currentBookCard =
-    document */
-    console.log(books.length);
-    document.getElementById
+function getBook() {
+    const bookCard = {
+        
+        title: document.getElementById('book-title-input').value,
+        author:  document.getElementById('book-author-input').value
+    }
+    return bookCard
 }
+
+
+function addBook() {
+    const book=getBook()
+
+    books.push(book);
+    storeData()
+    displayBook()
+}
+
+
+function displayBook()  {
+    for (bookCard in books) {    
+        const bookCard = document.createElement('div');
+        bookCard.innerHTML = `
+        <h2 class="book-title">${bookCard.title}</h2>
+        <h3 class="book-author">${bookCard.author}</h3>
+        <button class="remove-button" type="button">Remove</button>
+        `;    
+        document.getElementById('book-list').appendChild(bookCard);
+    }
+    
+} 
+
 
