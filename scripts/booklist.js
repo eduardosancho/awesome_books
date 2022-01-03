@@ -1,24 +1,26 @@
+const books = [];
+
 function storeData() {
     const bookData = {
-        title: document.getElementById('book-title').value,
-        author: document.getElementById('book-author').value
+        title: document.getElementById('book-title-input').value,
+        author: document.getElementById('book-author-input').value
     }
-    
-    localStorage.setItem('book-info', JSON.stringify(bookData));
+
+    localStorage.setItem('book-data', JSON.stringify(bookData));
 }
 
 document.getElementById('add-book').onchange = () => { storeData() };
 
-const localObject = localStorage.getItem('book-info');
+const localObject = localStorage.getItem('book-data');
 
 if (localObject) {
     const localBookTitle = JSON.parse(localObject).title;
     const localBookAuthor = JSON.parse(localObject).author;
     if (localBookTitle) {
-        document.getElementById('book-title').value = localBookTitle;
+        document.getElementById('book-title-input').value = localBookTitle;
     }
     if (localBookAuthor) {
-        document.getElementById('book-author').value = localBookAuthor;
+        document.getElementById('book-author-input').value = localBookAuthor;
     }
 
 }
@@ -26,17 +28,24 @@ if (localObject) {
 const addButton = document.getElementById("add-book-button");
 addButton.addEventListener('click', addBook);
 
-const bookCard = document.createElement('div');
-bookCard.classList.add('book-card');
-bookCard.innerHTML = 
-`
+function addBook() {
+    const bookCard = document.createElement('div');
+    bookCard.innerHTML = `
 <h2 class="book-title"></h2>
 <h3 class="book-author"></h3>
 <button class="remove-button" type="button">Remove</button>
-`
+`;
+    bookCard.setAttribute('id', `book-card-${books.length}`);
+    bookCard.querySelector('.book-title').textContent = document.getElementById('book-title-input').value;
+    bookCard.querySelector('.book-author').textContent = document.getElementById('book-author-input').value;
 
-function addBook() {
-    document.getElementById('book-list').appendChild(bookCard);
+    books.push(bookCard);
+
+    document.getElementById('book-list').appendChild(books[books.length-1]);
+
+    /* const currentBookCard =
+    document */
+    console.log(books.length);
+    document.getElementById
 }
 
-const books = [];
