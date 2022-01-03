@@ -35,7 +35,6 @@ function addBook() {
 <h3 class="book-author"></h3>
 <button class="remove-button" type="button">Remove</button>
 `;
-    bookCard.setAttribute('id', `book-card-${books.length}`);
     bookCard.querySelector('.book-title').textContent = document.getElementById('book-title-input').value;
     bookCard.querySelector('.book-author').textContent = document.getElementById('book-author-input').value;
 
