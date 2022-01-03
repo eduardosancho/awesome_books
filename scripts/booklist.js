@@ -23,4 +23,20 @@ if (localObject) {
 
 }
 
-// const books = [];
+const addButton = document.getElementById("add-book-button");
+addButton.addEventListener('click', addBook);
+
+const bookCard = document.createElement('div');
+bookCard.classList.add('book-card');
+bookCard.innerHTML = 
+`
+<h2 class="book-title"></h2>
+<h3 class="book-author"></h3>
+<button class="remove-button" type="button">Remove</button>
+`
+
+function addBook() {
+    document.getElementById('book-list').appendChild(bookCard);
+}
+
+const books = [];
