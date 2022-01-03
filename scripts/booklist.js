@@ -1,12 +1,7 @@
-const books = [];
+const books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
 
 function storeData() {
-    const bookData = {
-        title: document.getElementById('book-title-input').value,
-        author: document.getElementById('book-author-input').value
-    }
-
-    localStorage.setItem('book-data', JSON.stringify(bookData));
+    localStorage.setItem('books', JSON.stringify(books));
 }
 
 document.getElementById('add-book').onchange = () => { storeData() };
