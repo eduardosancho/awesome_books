@@ -15,12 +15,10 @@
     <div id="book-list">
     </div>
 
-
-    <div id="add-book">
-        <form>
-            <input type="text" id="book-title-input" placeholder="Title">
-            <input type="text" id="book-author-input" placeholder="Author">
-            <input type="button" id="add-book-button" value="Add">
+        <form action="submit" onsubmit="return addBook()" id="add-book">
+            <input type="text" name="title" id="book-title-input" placeholder="Title" required>
+            <input type="text" name="author" id="book-author-input" placeholder="Author" required>
+            <button type="submit" id="add-book-button">Add</button>
         </form>
     </div>
 
