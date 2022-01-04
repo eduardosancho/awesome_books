@@ -1,6 +1,6 @@
 let books = [];
 
-const temporal = document.querySelector('.book-card'); // saves template layout
+const temporal = document.querySelector('.book-card');
 const bookList = document.querySelector('#book-list');
 let idBook = books.length; //
 
@@ -42,13 +42,12 @@ function storeData(title, author) {
   const book = new Book(title, author);
   books.push(book);
   localStorage.books = JSON.stringify(books);
-  // localStorage.setItem('books', JSON.stringify(books)); SUPER SIMILAR
   refreshBookList();
 }
 
 function addBook() {
   const formAddBook = document.getElementById('add-book');
-  const bookData = new FormData(formAddBook); // Try to erase, is not used
+  const bookData = new FormData(formAddBook);
   const bookTitle = bookData.get('title');
   const bookAuthor = bookData.get('author');
   formAddBook.reset();
