@@ -11,24 +11,31 @@ function Book(title, author) {
   idBook += 1;
 }
 
-function displayBook(book) {
-  const clone = temporal.content.cloneNode(true);
-  clone.querySelector('h2').innerHTML = book.title;
-    clone.querySelector('h3').innerHTML = book.author;
-    clone.querySelector('button').addEventListener('click', () => {
-        removeBook(book.id);
-    })
-
-  bookList.appendChild(clone);
-}
-
 function refreshBookList() {
   books = JSON.parse(localStorage.books);
   bookList.innerHTML = '';
   bookList.appendChild(temporal);
   books.forEach((book) => {
+    // eslint-disable-next-line no-use-before-define
     displayBook(book);
   });
+}
+
+function removeBook(id) {
+  books = books.filter((book) => book.id !== id);
+  localStorage.books = JSON.stringify(books);
+  refreshBookList();
+}
+
+function displayBook(book) {
+  const clone = temporal.content.cloneNode(true);
+  clone.querySelector('h2').innerHTML = book.title;
+  clone.querySelector('h3').innerHTML = book.author;
+  clone.querySelector('button').addEventListener('click', () => {
+    removeBook(book.id);
+  });
+
+  bookList.appendChild(clone);
 }
 
 function storeData(title, author) {
@@ -46,12 +53,6 @@ function addBook() {
   const bookAuthor = bookData.get('author');
   formAddBook.reset();
   storeData(bookTitle, bookAuthor);
-}
-
-function removeBook(id) {
-    books = books.filter((book) => book.id !== id);
-    localStorage.books = JSON.stringify(books);
-    refreshBookList();
 }
 
 const addButton = document.querySelector('#add-book-button');
