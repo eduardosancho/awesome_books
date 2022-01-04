@@ -1,0 +1,9 @@
+#add-book {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#add-book > * {
+    margin: 7px;
+}
