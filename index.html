@@ -13,17 +13,19 @@
     </div>
 
     <div id="book-list">
-
+        <template class="book-card">
+            <h2 class="book-title"></h2>
+            <h3 class="book-author"></h3>
+            <button>Remove</button>
+            <hr>
+        </template>
     </div>
 
-
-    <div id="add-book">
-        <form>
-            <input type="text" id="book-title" placeholder="Title">
-            <input type="text" id="book-author" placeholder="Author">
-            <input type="button" id="add-book-button" value="Add">
+        <form action="submit" id="add-book">
+            <input type="text" name="title" id="book-title-input" placeholder="Title" required>
+            <input type="text" name="author" id="book-author-input" placeholder="Author" required>
+            <button type="submit" id="add-book-button">Add</button>
         </form>
-    </div>
 
     <script src="./scripts/booklist.js"></script>
 </body>
