@@ -19,11 +19,11 @@ tr {
 }
 
 tr:nth-child(even) {
-  background: #CCC
+  background: #ccc;
 }
 
 tr:nth-child(odd) {
-  background: #FFF
+  background: #fff;
 }
 
 span > * {
@@ -32,7 +32,6 @@ span > * {
 
 .remove-button {
   background-color: white;
-  box-shadow: black;
 }
 
 #add-book {
