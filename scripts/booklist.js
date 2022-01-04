@@ -1,4 +1,4 @@
-const books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+let books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
 
 function storeData() {
     localStorage.setItem('books', JSON.stringify(books));
@@ -39,9 +39,17 @@ function displayBooks(books) {
         `
         const rowTr = document.createElement('tr');
         rowTr.innerHTML = rowHTML(book);
+        rowTr.querySelector('.remove-button').addEventListener('click', () => {
+            removeBook(books.indexOf(book)); 
+        });
         document.getElementById('book-list').appendChild(rowTr);
     });
         
+}
+function removeBook(index) {
+    books = books.filter((book) => books.indexOf(book) !== index);
+    localStorage.books = JSON.stringify(books);
+    displayBooks(books);
 }
 
 displayBooks(books);
