@@ -1,3 +1,60 @@
-body {
+#header {
+  text-align: center;
+}
+
+#header h1 {
+  font-family: 'Indie Flower', cursive;
+}
+
+#book-list {
+  border: solid black 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+tr:nth-child(even) {
+  background: #ccc;
+}
+
+tr:nth-child(odd) {
+  background: #fff;
+}
+
+span > * {
+  height: 20px;
+}
+
+.remove-button {
   background-color: white;
+}
+
+#add-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-family: 'Indie Flower', cursive;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+}
+
+input {
+  margin: 5px;
+  border: solid black 3px;
+}
+
+#add-book-button {
+  align-self: flex-end;
 }
