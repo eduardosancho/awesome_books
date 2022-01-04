@@ -19,9 +19,12 @@ const bookList = document.getElementById('book-list');
 
 function addBook() {
     const book = getBook();
-    books.push(book);
-    storeData();
-    displayBooks(books);
+    if (JSON.stringify(books[books.length-1])!=JSON.stringify(book) &&
+    book.title!='' && book.author!=''){
+        books.push(book);
+        storeData();
+        displayBooks(books);
+    }
 }
 
 function displayBooks(books) {
