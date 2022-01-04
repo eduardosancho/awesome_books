@@ -14,7 +14,10 @@ function Book(title, author) {
 function displayBook(book) {
   const clone = temporal.content.cloneNode(true);
   clone.querySelector('h2').innerHTML = book.title;
-  clone.querySelector('h3').innerHTML = book.author;
+    clone.querySelector('h3').innerHTML = book.author;
+    clone.querySelector('button').addEventListener('click', () => {
+        removeBook(book.id);
+    })
 
   bookList.appendChild(clone);
 }
@@ -43,6 +46,12 @@ function addBook() {
   const bookAuthor = bookData.get('author');
   formAddBook.reset();
   storeData(bookTitle, bookAuthor);
+}
+
+function removeBook(id) {
+    books = books.filter((book) => book.id !== id);
+    localStorage.books = JSON.stringify(books);
+    refreshBookList();
 }
 
 const addButton = document.querySelector('#add-book-button');
