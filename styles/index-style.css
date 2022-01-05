@@ -1,11 +1,12 @@
-#header {
+h1 {
   text-align: center;
-}
-
-#header h1 {
   font-family: 'Indie Flower', cursive;
 }
-
+#awesome-list {
+  display: flex;
+  flex-direction: column;
+}
+ 
 #book-list {
   border: solid black 3px;
   display: flex;
@@ -57,4 +58,12 @@ input {
 
 #add-book-button {
   align-self: flex-end;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
 }
