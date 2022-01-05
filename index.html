@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +11,28 @@
     <link rel="stylesheet" href="./styles/index-style.css">
     <title>Awesome Books</title>
 </head>
+
 <body>
-    <div id="header">
-        <h1>Awesome Books</h1>
+    <nav id="navbar">
+        <p>Awesome Books</p>
+        <ul id="menu">
+            <li class="menu-links" id="list">List</li>
+            <li class="menu-links" id="new">Add new</li>
+            <li class="menu-links" id="contact">Contact</li>
+        </ul>
+    </nav>
+    <div id="date"></div>
+
+
+    <div class="content" id="awesome-list">    
+        <h1>All Awesome Books</h1>
+        <div id="book-list">
+        </div>
     </div>
 
-    <div id="book-list">
-    </div>
 
-
-    <div id="add-book">
-        <h3>Add a new book</h3>
+    <div class="content" id="add-book">
+        <h1>Add a new book</h1>
         <form>
             <input type="text" id="book-title-input" placeholder="Title">
             <input type="text" id="book-author-input" placeholder="Author">
@@ -28,6 +40,26 @@
         </form>
     </div>
 
+    <div class="content" id="contact-info">
+        <h1>Contact information</h1>
+        <p>Do you have any questions or you just want to say "Hello"? <br>
+            You can reach out to us!
+        </p>
+        <ul>
+            <li>Our e-mail: mail@mail.com</li>
+            <li>Our phone number: 0043586534422</li>
+            <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+    </div>
+
+    <footer>
+        <div id="copyright">
+            Copyright...
+        </div>
+    </footer>
+
     <script src="./scripts/booklist-classes.js"></script>
+    <script src="./scripts/navigation.js"></script>
 </body>
+
 </html>
