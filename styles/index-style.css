@@ -60,10 +60,6 @@ input {
   align-self: flex-end;
 }
 
-.show {
-  display: flex;
-}
-
 .hide {
-  display: none;
+  display: none !important;
 }
